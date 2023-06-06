@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/5f219ec053.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-container">
+          <a class="logo" href="#">LOGO</a>
+          <span class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="product-count">0</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Product -->
+    <div class="wrapper container">
+      <div class="product-action">
+        <div class="sort-product">
+          <label for="product-dropdown">Sort products: </label>
+          <select id="product-dropdown"></select>
+        </div>
+        <input
+          type="text"
+          placeholder="Search your products..."
+          id="search-product"
+        />
+      </div>
+      <div class="product-container"></div>
+      <!-- <div class="product">
+        <div class="product-img">
+          <img
+            src="https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tfGVufDB8fDB8fHww&w=1000&q=80"
+            alt=""
+          />
+        </div>
+        <div class="product-content">
+          <div class="product-top">
+            <span class="product-category">men's clothing</span>
+            <h1 class="product-title">
+              Mens Casual Premium Slim Fit T-Shirts Premium Slim
+            </h1>
+            <p class="product-desc">
+              Slim-fitting style, contrast raglan long sleeve, three-button
+              henley placket, light weight & soft fabric for breathable and
+              comfortable wearing. And Solid stitched shirts with round neck
+              made for durability and a great fit for casual fashion wear and
+              diehard baseball fans. The Henley style round neckline includes a
+              three-button placket.
+            </p>
+            <span class="product-price">99$</span>
+          </div>
+          <div class="product-bottom">
+            <div class="product-meta">
+              <div class="group group_rating">
+                <span class="product-rating">4.1</span>
+                <span><i class="fa-solid fa-star"></i></span>
+              </div>
+              <div class="group group_user">
+                <span class="product-count">259</span>
+                <span><i class="fa-solid fa-user"></i></span>
+              </div>
+            </div>
+          </div>
+          <button class="add-btn">Add to cart</button>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal">
+      <div class="overlay"></div>
+      <div class="modal-container">
+        <span class="modal-close">
+          <i class="fa-solid fa-xmark"></i>
+        </span>
+        <div class="modal-content">
+          <h1 class="modal-title">Your bill</h1>
+          <ul class="cart-product">
+            <!-- <li class="cart-product-item">
+              <div class="cart-product-item-info">
+                <img src="https://source.unsplash.com/random" alt="" />
+                <div class="col">
+                  <h1>Mens Casual Premium Slim Fit T-Shirts</h1>
+                  <span>110$</span>
+                </div>
+              </div>
+              <div class="cart-product-item-action">
+                <span class="icon">+</span>
+                <span class="quantity">1</span>
+                <span class="icon">-</span>
+              </div>
+            </li> -->
+          </ul>
+          <div class="cart-checkout">
+            <span class="cart-total">732$</span>
+            <button class="checkout-btn">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

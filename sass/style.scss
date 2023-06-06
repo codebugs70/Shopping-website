@@ -1,0 +1,378 @@
+// ! sass ./sass/style.scss ./css/style.css --watch
+@import "variables";
+@import "reset";
+/* ================================================ */
+
+// TODO: Global class
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+}
+.cart-product {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.cart-product::-webkit-scrollbar {
+  display: none;
+}
+.wrapper {
+  padding-top: 150px;
+}
+/* ================================================ */
+
+// TODO: Header
+.header {
+  background-color: $graySoft;
+  position: fixed;
+  top: 0;
+  padding: 20px 0;
+  z-index: 99;
+  width: 100%;
+  &-container {
+    color: $text1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      color: $text1;
+      font-weight: 600;
+      font-size: 30px;
+      color: $colorblue;
+    }
+    .cart-icon {
+      font-size: 30px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      &:hover {
+        color: $colorblue;
+      }
+      .product-count {
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        width: 30px;
+        height: 30px;
+        border-radius: 100rem;
+        background-color: $colorblue;
+        color: white;
+      }
+    }
+  }
+}
+/* ================================================ */
+
+// TODO: Filter, Sort, Search
+.product-action {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .sort-product {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    label {
+      font-weight: 500;
+    }
+    #product-dropdown {
+      padding: 5px;
+      text-transform: capitalize;
+      border: 2px solid $colorlightgray;
+      outline-color: $colorblue;
+      option {
+        text-transform: capitalize;
+      }
+    }
+  }
+  #search-product {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 8px;
+    border: 1px solid #eee;
+    outline-color: $colorblue;
+    font-size: 16px;
+  }
+}
+/* ================================================ */
+
+// TODO: Product in cart
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  color: $text1;
+  background-color: $whiteSoft;
+  border-radius: 8px;
+  gap: 10px;
+  &-img {
+    overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+    height: 200px;
+    &:hover img {
+      transition: all 0.2s linear;
+      transform: scale(1.1);
+    }
+    img {
+      transition: all 0.2s linear;
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &-content {
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  &-top {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 5px;
+  }
+  &-title {
+    flex: 1;
+    color: $colorblue;
+    font-size: 18px;
+    font-weight: 600;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+  }
+  &-price {
+    font-size: 30px;
+    font-weight: 600;
+    color: $colorblue;
+  }
+  &-category {
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 8px;
+    color: $colorblue;
+    font-weight: 500;
+    background-color: rgba(29, 156, 240, 0.1);
+    font-size: 14px;
+  }
+  &-bottom {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  &-desc {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+    line-height: 1.5;
+    font-size: 15px;
+  }
+  &-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .group {
+      font-size: 16px;
+      display: flex;
+      gap: 5px;
+      font-weight: 600;
+      align-items: center;
+      color: #ccc;
+    }
+  }
+  .add-btn {
+    margin-top: 5px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-weight: 500;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $colorblue;
+    color: white;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+/* ================================================ */
+
+// TODO: Modal cart
+.modal {
+  position: fixed;
+  inset: 0;
+  transition: all 0.2s linear;
+  opacity: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  &.show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  &-container {
+    padding: 20px;
+    background-color: $whiteSoft;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 8px;
+    z-index: 10;
+  }
+  &-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+    background-color: $colorblue;
+    border-radius: 100rem;
+    * {
+      pointer-events: none;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &-content {
+    padding-top: 10px;
+    .modal-title {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: $colorblue;
+      text-transform: capitalize;
+    }
+    .cart-product {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: 100%;
+      max-height: 450px;
+      overflow-y: auto;
+      &-item {
+        padding: 10px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-info {
+          display: flex;
+          gap: 15px;
+          user-select: none;
+          .cart-image {
+            border-radius: 8px;
+            width: 100px;
+            height: 80px;
+            img {
+              border-radius: 8px;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          .col {
+            flex: 1;
+            width: 100%;
+            max-width: 350px;
+            h1 {
+              font-size: 15px;
+              font-weight: 600;
+              color: $colorblue;
+            }
+            span {
+              font-weight: 600;
+              font-size: 20px;
+            }
+          }
+        }
+        &-action {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: $colorblue;
+            font-size: 18px;
+            cursor: pointer;
+            user-select: none;
+            border-radius: 100rem;
+            color: white;
+            * {
+              pointer-events: none;
+            }
+          }
+          .quantity {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            font-weight: 600;
+            font-size: 20px;
+            user-select: none;
+          }
+        }
+      }
+    }
+    .cart-checkout {
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+      text-align: right;
+      justify-content: end;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      .cart-total {
+        font-size: 30px;
+        font-weight: 600;
+      }
+      .checkout-btn {
+        border-radius: 8px;
+        cursor: pointer;
+        text-transform: capitalize;
+        font-weight: 500;
+        padding: 15px 20px;
+        background-color: $colorblue;
+        color: white;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
